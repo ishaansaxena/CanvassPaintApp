@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Canvass. - Paint More</title>
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.css">
+</head>
+<body>
+<canvas id="canvas"></canvas>
+<div id="control">
+    <div class="container">
+        <h1 class="heading">Canvass.</h1>
+        <h2 class="subheading">by <a href="http://ishaansaxena.in">Ishaan Saxena</a></h2><!--
+     --><div class="control-box">
+            <div class="control-header">Toolkit</div>
+            <div id="tools" class="control-inner">
+            </div>
+        </div><!--
+     --><div class="control-box brush">
+        <div class="control-header">Brush Settings</div>
+            <div class="brush">
+                <div class="control-inner">
+                    <div class="control-header" style="margin-top:10px!important">Size</div>
+                    <input id="brush" type="text" value="5"/>
+                    <div class="control-header" style="margin-top:10px!important">Color</div>
+                    <input id="color" type="text" value="#00B16A"/>
+                    <div class="control-header" style="margin-top:10px!important">Alpha</div>
+                    <input id="alpha" type="text" value="1.0"/>
+                </div>
+            </div>
+        </div><!--
+     --><div class="control-box palette">
+            <div class="control-header">Palette</div>
+            <div id="paints" class="control-inner">
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="index.js"></script>
+</body>
+</html>
