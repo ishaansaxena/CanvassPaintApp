@@ -21,7 +21,6 @@ a, a:visited, a:focus {
   text-decoration: none;
   cursor: pointer;
   color: #eee;
-  -webkit-transition: all 0.5s ease;
   transition: all 0.5s ease;
 }
 
@@ -36,14 +35,18 @@ canvas {
 #control {
   position: absolute;
   display: block;
-  -webkit-transform: translate(0, -100%);
-          transform: translate(0, -100%);
+  transform: translate(0, -100%);
   top: 100%;
   width: 100%;
   height: 210px;
   background: #222;
   border-top: 1px solid;
   border-color: #00b16a;
+  transition: all 0.5s cubic-bezier(0.93, 0.14, 0.55, 0.95);
+  cursor: pointer;
+}
+#control.down {
+  transform: translate(0, -33%);
 }
 
 .container {
@@ -125,35 +128,29 @@ canvas {
   position: absolute;
   top: 50%;
   left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
   font-size: 25px;
   color: rgba(238, 238, 238, 0.75);
-  -webkit-transition: all 0.25s ease;
   transition: all 0.25s ease;
 }
 .tool h2, .tool-thin h2 {
   position: absolute;
   top: 50%;
   left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
   font-size: 10px;
   color: #eeeeee;
   text-transform: uppercase;
   font-family: "Lato", sans-serif;
   font-weight: 300;
   opacity: 0;
-  -webkit-transition: all 0.25s ease;
   transition: all 0.25s ease;
 }
 .tool:hover i, .tool-thin:hover i {
-  -webkit-transform: translate(-50%, -85%);
-          transform: translate(-50%, -85%);
+  transform: translate(-50%, -85%);
 }
 .tool:hover h2, .tool-thin:hover h2 {
-  -webkit-transform: translate(-50%, 85%);
-          transform: translate(-50%, 85%);
+  transform: translate(-50%, 85%);
   opacity: 1;
 }
 .tool:focus, .tool-thin:focus, .tool.selected, .selected.tool-thin {
@@ -164,7 +161,6 @@ canvas {
 .tool-thin {
   width: 25px;
   height: 70px;
-  -webkit-transition: all 0.25s ease;
   transition: all 0.25s ease;
   box-shadow: inset 0 -60px 0 rgba(0, 0, 0, 0.5);
   border: none;
@@ -182,11 +178,8 @@ input[type="text"] {
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
   font-size: 15px;
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
+  appearance: none;
   border-left: 5px solid #00b16a;
-  -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
   color: #eee;
   background: none;
@@ -198,83 +191,52 @@ input[type="text"]:focus, input[type="text"]:hover {
   border-color: #eee;
 }
 
-@-webkit-keyframes colors {
-  0% {
-    color: #00B16A;
-  }
-  20% {
-    color: #1BA39C;
-  }
-  40% {
-    color: #4183D7;
-  }
-  60% {
-    color: #3A539B;
-  }
-  80% {
-    color: #22313F;
-  }
-  100% {
-    color: #00B16A;
-  }
-}
-
 @keyframes colors {
   0% {
     color: #00B16A;
   }
+
   20% {
     color: #1BA39C;
   }
+
   40% {
     color: #4183D7;
   }
+
   60% {
     color: #3A539B;
   }
+
   80% {
     color: #22313F;
   }
+
   100% {
     color: #00B16A;
-  }
-}
-@-webkit-keyframes bgcolors {
-  0% {
-    background: #22313F;
-  }
-  20% {
-    background: #1F3A93;
-  }
-  40% {
-    background: #26A65B;
-  }
-  60% {
-    background: #4183D7;
-  }
-  80% {
-    background: #4183D7;
-  }
-  100% {
-    background: #22313F;
   }
 }
 @keyframes bgcolors {
   0% {
     background: #22313F;
   }
+
   20% {
     background: #1F3A93;
   }
+
   40% {
     background: #26A65B;
   }
+
   60% {
     background: #4183D7;
   }
+
   80% {
     background: #4183D7;
   }
+
   100% {
     background: #22313F;
   }
@@ -284,6 +246,10 @@ input[type="text"]:focus, input[type="text"]:hover {
   right: 40px;
   bottom: 220px;
   color: white;
+  transition: all 0.5s cubic-bezier(0.93, 0.14, 0.55, 0.95);
+}
+.github.down {
+  transform: translate(0, 140px);
 }
 .github a {
   position: absolute;
@@ -291,8 +257,7 @@ input[type="text"]:focus, input[type="text"]:hover {
   font-size: 36px;
 }
 .github a:hover {
-  -webkit-animation: colors 0.25s linear infinite;
-          animation: colors 0.25s linear infinite;
+  animation: colors 0.25s linear infinite;
 }
 
 .web {
@@ -303,6 +268,10 @@ input[type="text"]:focus, input[type="text"]:hover {
   width: 32px;
   height: 32px;
   border-radius: 50%;
+  transition: all 0.5s cubic-bezier(0.93, 0.14, 0.55, 0.95);
+}
+.web.down {
+  transform: translate(0, 140px);
 }
 .web a {
   position: relative;
@@ -313,7 +282,6 @@ input[type="text"]:focus, input[type="text"]:hover {
   color: #333;
 }
 .web:hover {
-  -webkit-animation: bgcolors 0.25s linear infinite;
-          animation: bgcolors 0.25s linear infinite;
+  animation: bgcolors 0.25s linear infinite;
   cursor: pointer;
 }
