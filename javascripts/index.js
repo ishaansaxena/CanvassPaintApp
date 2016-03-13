@@ -36,7 +36,7 @@ var toolKit = document.getElementById('tools');
 // Document function
 function initializeDocument(){
     canvas.width = document.body.clientWidth;
-    canvas.height = document.body.clientHeight - control.clientHeight;
+    canvas.height = document.body.clientHeight - control.clientHeight*0.33;
     for (var i = 0; i < kit_dict['paints'].length; i++){
         paintKit.innerHTML += "<div class='tool-thin' style='background:" + kit_dict['paints'][i] + "!important' " + "color='"+ kit_dict['paints'][i] +"'" +"></div>\n";
     }
@@ -180,6 +180,20 @@ colorDisplay.addEventListener('change', function(event){
     control.setAttribute("style","border-color: " + strokeColorSetting + "!important");
     this.setAttribute("style", "border-color: " + strokeColorSetting + "!important" );
 }, false);
+
+control.addEventListener('click', function(event){
+    document.getElementById('gt').classList.remove('down');
+    document.getElementById('wb').classList.remove('down');
+    this.classList.remove('down');
+    this.style.cursor = "default";
+}, false)
+
+control.addEventListener('mouseleave', function(event){
+    document.getElementById('gt').classList.add('down');
+    document.getElementById('wb').classList.add('down');
+    this.classList.add('down');
+    this.style.cursor = "pointer";
+}, false)
 
 for (var i = 0; i < toolList.length; i++) {
     toolList[i].addEventListener('click', function(event){
