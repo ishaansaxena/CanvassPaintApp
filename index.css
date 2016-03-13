@@ -3,10 +3,6 @@
   height: 0px;
 }
 
-* {
-  margin: 0;
-}
-
 html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -46,6 +42,11 @@ canvas {
   background: #222;
   border-top: 1px solid;
   border-color: #00b16a;
+  transition: all 0.5s cubic-bezier(0.93, 0.14, 0.55, 0.95);
+  cursor: pointer;
+}
+#control.down {
+  transform: translate(0, -33%);
 }
 
 .container {
@@ -172,8 +173,7 @@ canvas {
 input[type="text"] {
   position: relative;
   display: inline-block;
-  padding: 2px 0 2px 5px;
-  margin: 2px 0 0 0;
+  padding-left: 5px;
   border: 0;
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
@@ -189,4 +189,99 @@ input[type="text"] {
 input[type="text"]:focus, input[type="text"]:hover {
   outline: none;
   border-color: #eee;
+}
+
+@keyframes colors {
+  0% {
+    color: #00B16A;
+  }
+
+  20% {
+    color: #1BA39C;
+  }
+
+  40% {
+    color: #4183D7;
+  }
+
+  60% {
+    color: #3A539B;
+  }
+
+  80% {
+    color: #22313F;
+  }
+
+  100% {
+    color: #00B16A;
+  }
+}
+@keyframes bgcolors {
+  0% {
+    background: #22313F;
+  }
+
+  20% {
+    background: #1F3A93;
+  }
+
+  40% {
+    background: #26A65B;
+  }
+
+  60% {
+    background: #4183D7;
+  }
+
+  80% {
+    background: #4183D7;
+  }
+
+  100% {
+    background: #22313F;
+  }
+}
+.github {
+  position: absolute;
+  right: 40px;
+  bottom: 220px;
+  color: white;
+  transition: all 0.5s cubic-bezier(0.93, 0.14, 0.55, 0.95);
+}
+.github.down {
+  transform: translate(0, 140px);
+}
+.github a {
+  position: absolute;
+  top: -35px;
+  font-size: 36px;
+}
+.github a:hover {
+  animation: colors 0.25s linear infinite;
+}
+
+.web {
+  position: absolute;
+  right: 48px;
+  bottom: 221px;
+  background: #eee;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  transition: all 0.5s cubic-bezier(0.93, 0.14, 0.55, 0.95);
+}
+.web.down {
+  transform: translate(0, 140px);
+}
+.web a {
+  position: relative;
+  margin: auto auto;
+  left: 6px;
+  top: 6.5px;
+  font-size: 20px;
+  color: #333;
+}
+.web:hover {
+  animation: bgcolors 0.25s linear infinite;
+  cursor: pointer;
 }
