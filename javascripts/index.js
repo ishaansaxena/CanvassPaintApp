@@ -119,7 +119,7 @@ function handleStart(event){
 function handleMove(event){
     event.preventDefault();
     if(paint && toolSelected == 'paint'){
-        mouse_position = get_mouse_position(canvas, event);
+        mouse_position = get_mouse_position(canvas, event.touches[0]);
         addClick(mouse_position.x, mouse_position.y, true)
         redraw(context);
     }
