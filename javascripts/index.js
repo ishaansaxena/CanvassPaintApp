@@ -119,8 +119,14 @@ function handleStart(event){
 function handleMove(event){
     event.preventDefault();
     if(paint && toolSelected == 'paint'){
-        mouse_position = get_mouse_position(canvas, event.touches[0]);
-        addClick(mouse_position.x, mouse_position.y, true)
+        if(event.type == "touchmove" || event.type == "touchstart"){
+            mouse_position = get_mouse_position(canvas, event.touches[0]);
+            addClick(mouse_position.x, mouse_position.y, true)
+        }
+        else{
+            mouse_position = get_mouse_position(canvas, event);
+            addClick(mouse_position.x, mouse_position.y, true);
+        }
         redraw(context);
     }
 }
